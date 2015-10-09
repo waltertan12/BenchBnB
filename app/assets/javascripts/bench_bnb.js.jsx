@@ -1,6 +1,6 @@
 $(document).ready( function () {
   React.render(
-    (<Index>BenchBnB</Index>),
+    <Search/>,
     document.getElementById("content")
   );
 });
