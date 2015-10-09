@@ -9,9 +9,13 @@
     },
     componentDidMount: function () {
       root.BenchStore.addChangeListener(this._onChange);
+      root.ItemStore.addChangeListener(this._onMouseOver);
     },
     _onChange: function () {
       this.setState({benches: root.BenchStore.all()});
+    },
+    _onMouseOver: function (item, e) {
+      root.ItemUtil.fetchItem(item);
     },
     render: function () {
       console.log(this.state.benches);
@@ -20,9 +24,15 @@
           {
             this.state.benches.map( function (bench) {
               return(
-                <li>{bench.description}</li>
+                <li className="bench-list-item"
+                    onMouseOver={this._onMouseOver.bind(null, bench)} 
+                    onClick={this._onMouseOver}>
+                    Description: {bench.description},
+                    Latitude: {bench.lat},
+                    Longitude: {bench.lng}
+                </li>
               );
-            })
+            }.bind(this))
           }
         </ul>
       );

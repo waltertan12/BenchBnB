@@ -42,15 +42,28 @@
         }
 
         ApiUtil.fetchBenches(bounds);
-      root.BenchStore.addChangeListener(this._onChange);
       }.bind(this));
+      root.BenchStore.addChangeListener(this._onChange);
+      root.ItemStore.addChangeListener(this.toggleSingleMarkerBounce);
 
+    },
+    toggleSingleMarkerBounce: function () {
+      var bench = root.ItemStore.all();
+      var marker = this.findMarker(bench.id);
+      this.toggleBounce(marker);
     },
     nullifyMarkers: function () {
       var oldMarkers = this.state.markers;
       for (var i = 0; i < oldMarkers.length; i++) {
         oldMarkers[i].setMap(null);
       }
+    },
+    findMarker: function (benchId) {
+      for (var i = 0; i < this.state.markers.length; i++) {
+        if (this.state.markers[i].benchId === benchId) {
+          return this.state.markers[i];
+        }
+      };
     },
     toggleBounce: function(marker) {
       if (marker.getAnimation() !== null) {
@@ -73,6 +86,7 @@
         }
 
         var marker = new google.maps.Marker({
+            benchId: bench.id, 
             position: position,
             map: map,
             description: bench.description
