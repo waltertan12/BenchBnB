@@ -29,7 +29,3 @@
     }
   });
 })(this);
-
-// return (
-//                 <li>{bench.description}</li>
-//               );

@@ -52,6 +52,13 @@
         oldMarkers[i].setMap(null);
       }
     },
+    toggleBounce: function(marker) {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    },
     _onChange: function () {
       var map = this.map,
           newMarkers = [],
@@ -66,13 +73,12 @@
         }
 
         var marker = new google.maps.Marker({
-            id: bench.id,
             position: position,
             map: map,
             description: bench.description
         });
 
-        marker.addListener('click', toggleBounce);
+        marker.addListener('click', this.toggleBounce.bind(null, marker));
         newMarkers.push(marker);
 
       }.bind(this));
