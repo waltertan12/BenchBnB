@@ -4,6 +4,7 @@
   }
 
   root.Map = React.createClass({
+    mixins: [ReactRouter.History],
     getInitialState: function () {
       return {markers: []};
     },
@@ -43,6 +44,16 @@
 
         ApiUtil.fetchBenches(bounds);
       }.bind(this));
+
+      this.map.addListener('click', function (e) {
+        var lat = e.latLng.lat();
+        var lng = e.latLng.lng();
+
+        var query = {lat: lat, lng: lng};
+
+        this.history.pushState(null, "benches/new", query);
+      }.bind(this));
+
       root.BenchStore.addChangeListener(this._onChange);
       root.ItemStore.addChangeListener(this.toggleSingleMarkerBounce);
 

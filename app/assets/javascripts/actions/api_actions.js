@@ -9,6 +9,12 @@
         actionType: root.BenchConstants.BENCHES_RECEIVED,
         benches: benches
       });
+    },
+    createBench: function (bench) {
+      root.AppDispatcher.dispatch({
+        actionType: root.BenchConstants.BENCH_CREATED,
+        bench: bench
+      })
     }
   };
 

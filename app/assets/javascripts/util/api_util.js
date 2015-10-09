@@ -16,6 +16,17 @@
           root.ApiActions.receiveBenches(benches);
         }
       });
+    },
+    createBench: function (bench) {
+      $.ajax({
+        url: "/api/benches",
+        type: "POST",
+        data: bench,
+        dataType: "json",
+        success: function (bench) {
+          root.ApiActions.createBench(bench);
+        }
+      });
     }
   };
 })(this);

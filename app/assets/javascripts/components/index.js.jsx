@@ -18,7 +18,6 @@
       root.ItemUtil.fetchItem(item);
     },
     render: function () {
-      console.log(this.state.benches);
       return (
         <ul>
           {
