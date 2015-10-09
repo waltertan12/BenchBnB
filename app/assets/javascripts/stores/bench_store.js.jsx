@@ -7,6 +7,9 @@
       resetBenches = function (benches) {
         _benches = benches;
       },
+      updateBenches = function (benches) {
+        _benches = benches;
+      },
       CHANGE_EVENT = "CHANGE";
 
   root.BenchStore = $.extend({}, EventEmitter.prototype,{

@@ -14,7 +14,22 @@
       this.setState({benches: root.BenchStore.all()});
     },
     render: function () {
-      return <div>{this.state.benches}</div>;
+      console.log(this.state.benches);
+      return (
+        <ul>
+          {
+            this.state.benches.map( function (bench) {
+              return(
+                <li>{bench.description}</li>
+              );
+            })
+          }
+        </ul>
+      );
     }
   });
 })(this);
+
+// return (
+//                 <li>{bench.description}</li>
+//               );
