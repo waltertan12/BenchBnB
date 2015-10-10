@@ -19,6 +19,8 @@
     },
     render: function () {
       return (
+        <div>
+        <h2>All Benches</h2>
         <ul>
           {
             this.state.benches.map( function (bench) {
@@ -28,12 +30,14 @@
                     onClick={this._onMouseOver}>
                     Description: {bench.description},
                     Latitude: {bench.lat},
-                    Longitude: {bench.lng}
+                    Longitude: {bench.lng}, 
+                    Seating: {bench.seating}
                 </li>
               );
             }.bind(this))
           }
         </ul>
+        </div>
       );
     }
   });

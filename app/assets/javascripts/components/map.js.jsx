@@ -42,9 +42,12 @@
           }
         }
 
-        ApiUtil.fetchBenches(bounds);
+        root.FilterActions.receiveFilter(this.props.filter);
+
+        ApiUtil.fetchBenches(bounds, this.props.filter);
       }.bind(this));
 
+      // Click function
       this.map.addListener('click', function (e) {
         var lat = e.latLng.lat();
         var lng = e.latLng.lng();
@@ -112,6 +115,7 @@
     },
 
     render: function () {
+      console.log(this.props);
       return (
         <div className="map" ref={"google_map"}>
 
