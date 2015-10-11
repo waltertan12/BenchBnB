@@ -31,7 +31,6 @@
       this.setState({seating: parseFloat(e.target.value)});
     },
     render: function () {
-      console.log(this.props.location);
       return (
         <form onSubmit={this._onSubmit}>
           <label>Description</label>
@@ -70,9 +69,3 @@
     }
   });
 })(this);
-
-          // <label>Latitude</label><br/>
-          // <input type="text" value={this.state.lat}/><br/>
-          // <label>Longitude</label><br/>
-          // <input type="text" value={this.state.lng}/><br/>
-          // <br/>

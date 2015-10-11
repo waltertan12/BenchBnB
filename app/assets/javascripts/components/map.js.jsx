@@ -8,22 +8,7 @@
     getInitialState: function () {
       return {markers: []};
     },
-    componentDidMount: function(){
-      var mapOptions, 
-          mapBounds,
-          bounds,
-          ne,
-          sw
-          map = React.findDOMNode(this.refs.google_map);
-      
-      mapOptions = {
-        center: {lat: 37.7758, lng: -122.435},
-        zoom: 13 
-      };
-
-
-      this.map = new google.maps.Map(map, mapOptions);
-
+    createIdleListener: function () {
       this.map.addListener('idle', function () {
         
         mapBounds = this.map.getBounds();
@@ -46,8 +31,8 @@
 
         ApiUtil.fetchBenches(bounds, this.props.filter);
       }.bind(this));
-
-      // Click function
+    },
+    createClickListener: function () {
       this.map.addListener('click', function (e) {
         var lat = e.latLng.lat();
         var lng = e.latLng.lng();
@@ -56,10 +41,32 @@
 
         this.history.pushState(null, "benches/new", query);
       }.bind(this));
+    },
+    componentDidMount: function(){
+      var mapOptions, 
+          mapBounds,
+          bounds,
+          ne,
+          sw
+          map = React.findDOMNode(this.refs.google_map);
+      
+      mapOptions = {
+        center: {lat: 37.7758, lng: -122.435},
+        zoom: 13 
+      };
+
+
+      this.map = new google.maps.Map(map, mapOptions);
+      this.createIdleListener();
+      this.createClickListener();
 
       root.BenchStore.addChangeListener(this._onChange);
       root.ItemStore.addChangeListener(this.toggleSingleMarkerBounce);
 
+    },
+    componentWillUnmount: function () {
+      root.BenchStore.removeChangeListener(this._onChange);
+      root.ItemStore.removeChangeListener(this.toggleSingleMarkerBounce);
     },
     toggleSingleMarkerBounce: function () {
       var bench = root.ItemStore.all();
@@ -115,11 +122,8 @@
     },
 
     render: function () {
-      console.log(this.props);
       return (
-        <div className="map" ref={"google_map"}>
-
-        </div>
+        <div className="map" ref={"google_map"}></div>
       );
     }
   });
