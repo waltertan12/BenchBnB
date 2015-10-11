@@ -10,7 +10,7 @@
     },
     updateMin: function (e) {
       var newFilter = {
-        bounds: this.state.bounds,
+        bounds: this.state.filter.bounds,
         min: parseInt(e.target.value),
         max: this.state.filter.max
       };
@@ -20,7 +20,7 @@
     },
     updateMax: function (e) {
       var newFilter = {
-        bounds: this.state.bounds,
+        bounds: this.state.filter.bounds,
         min: this.state.filter.min,
         max: parseInt(e.target.value)
       };

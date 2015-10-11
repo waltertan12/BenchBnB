@@ -11,10 +11,12 @@
     componentDidMount: function () {
       root.FilterParamsStore.addChangeListener(this._onChange);
     },
-    _onChange: function () {
-      this.setState({filter: root.FilterParamsStore.all()});
+    componentWillUnmount: function () {
+      root.FilterParamsStore.removeChangeListener(this._onChange);
     },
-    updateFilter: function () {
+    _onChange: function () {
+      console.log("Search Filter is being updated with: ");
+      console.log(root.FilterParamsStore.all());
       this.setState({filter: root.FilterParamsStore.all()});
     },
     render: function () {

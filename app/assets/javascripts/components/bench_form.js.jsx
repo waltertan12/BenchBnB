@@ -15,8 +15,6 @@
     },
     _onSubmit: function (e) {
       e.preventDefault();
-      console.log("////////////// SUBMIT //////////////")
-      console.log(this.state)
       root.ApiUtil.createBench({bench: this.state});
       this.history.pushState(null, "/");
     },

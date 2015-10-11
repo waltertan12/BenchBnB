@@ -17,6 +17,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+video#bgvid { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url("/assets/brooklyn.jpg");
+  background-size: cover; 
+}
+
 body {
   font-family: "Montserrat", Ubuntu;
 }
@@ -24,12 +39,15 @@ body {
 .bench-form {
   width: 800px;
   margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .map {
   height: 500px;
   width: 500px;
-  background-color: lightblue;
+  background-color: gray;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px 0 0 5px;
@@ -37,7 +55,7 @@ body {
 }
 
 .bench-list-item:hover {
-  background-color: lightblue;
+  background-color: gray;
   cursor: pointer;
   color: white;
 }
@@ -48,7 +66,7 @@ body {
   text-align: center;
   border-radius: 5px;
   color: white;
-  background-color: lightblue;
+  background-color: gray;
   min-width: 800px;
   width: 70%;
 
@@ -80,7 +98,7 @@ body {
 
 .bench-index-header {
   color: white;
-  background: lightblue;
+  background: gray;
   margin: 0;
 }
 
@@ -101,9 +119,10 @@ body {
   width: 300px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid lightgray;
+  border: 1px solid gray;
   overflow-y: scroll;
   border-radius: 0 5px 5px 0;
+  background-color: white;
 }
 
 .main {
@@ -116,8 +135,8 @@ body {
   position: relative;
   background-size: cover;
   overflow: hidden;
-  color: lightblue;
-  background: lightblue;
+  color: gray;
+  background: gray;
   font-weight: bold;
   margin: 20px auto;
 }

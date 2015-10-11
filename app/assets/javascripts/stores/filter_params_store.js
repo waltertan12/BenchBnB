@@ -3,7 +3,6 @@
     root.FilterParamsStore = {};
   }
 
-  // var _filter = {bounds: null, max: null, min: null},
   var _filter = {bounds: {}, max: 10, min: 0},
       resetFilter = function (filter) {
         _filter = filter;

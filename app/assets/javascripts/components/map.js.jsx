@@ -14,6 +14,7 @@
           ne,
           sw;
       this.map.addListener('idle', function () {
+        console.log("IDLE");
         mapBounds = this.map.getBounds();
 
         ne = mapBounds.getNorthEast();
@@ -30,14 +31,15 @@
           }
         };
 
-        var newFilter = {
+        newFilter = {
           bounds: bounds,
           max: this.props.filter.max,
           min: this.props.filter.min
         };
 
+        console.log("Map Component New Filter");
+        console.log(newFilter);
         root.FilterActions.receiveFilter(newFilter);
-
         ApiUtil.fetchBenches(newFilter);
       }.bind(this));
     },
@@ -68,7 +70,6 @@
 
       root.BenchStore.addChangeListener(this._onChange);
       root.ItemStore.addChangeListener(this.toggleSingleMarkerBounce);
-
     },
     componentWillUnmount: function () {
       root.BenchStore.removeChangeListener(this._onChange);
