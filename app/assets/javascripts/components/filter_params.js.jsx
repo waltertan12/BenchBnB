@@ -30,21 +30,29 @@
     },
     render: function () {
       return (
-        <form onSubmit={this.onSubmit}>
-          <label>Mininum Seating</label>
-          <input type="number" 
-                 onChange={this.updateMin} 
-                 value={this.state.filter.min}
-                 className="form-control"/>
+        <div className="filter-form">
+        <h3>Find the right bench for you</h3>
+          <br/>
+          <form onSubmit={this.onSubmit} className="row">
+            <div className="col-md-3 col-md-offset-3">
+              <label >Mininum Seating</label>
+              <input type="number" 
+                     onChange={this.updateMin} 
+                     value={this.state.filter.min}
+                     className="form-control min-max-form"/>
 
-          <br/>
-          <label>Maximum Seating</label>
-          <br/>
-          <input type="number" 
-                 onChange={this.updateMax} 
-                 value={this.state.filter.max}
-                 className="form-control"/>
-        </form>
+              <br/>
+            </div>
+            <div className="col-md-3">
+              <label>Maximum Seating</label>
+              <br/>
+              <input type="number" 
+                     onChange={this.updateMax} 
+                     value={this.state.filter.max}
+                     className="form-control min-max-form"/>
+            </div>
+          </form>
+        </div>
       );
     }
   });

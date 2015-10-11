@@ -21,8 +21,8 @@
       return (
         <div>
           <Map filter={this.state.filter}/>
-          <Index />
           <FilterParams filter={this.state.filter}/>
+          <Index />
         </div>
       );
     }

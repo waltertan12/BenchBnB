@@ -28,15 +28,14 @@
             "lat": sw.lat(),
             "lng": sw.lng()
           }
-        }
+        };
 
         var newFilter = {
           bounds: bounds,
           max: this.props.filter.max,
           min: this.props.filter.min
-        }
-        console.log("//// NEW FILTER ////") 
-        console.log(newFilter);
+        };
+
         root.FilterActions.receiveFilter(newFilter);
 
         ApiUtil.fetchBenches(newFilter);

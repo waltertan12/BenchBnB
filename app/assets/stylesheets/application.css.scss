@@ -18,7 +18,7 @@
 @import "bootstrap";
 
 body {
-  font-family: Ubuntu;
+  font-family: "Montserrat", Ubuntu;
 }
 
 .map {
@@ -32,6 +32,36 @@ body {
 
 .bench-list-item:hover {
   background-color: lightblue;
+  cursor: pointer;
+}
+
+.filter-form {
+  margin: 20px auto;
+  padding: 20px 20px;
+  text-align: center;
+/*  margin-left: auto;
+  margin-right: auto;*/
+  border-radius: 5px;
+  background-color: lightgray;
+
+}
+
+.min-max-form {
+  text-align: center;
+}
+
+.bench-list-item {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 5px;
+  padding-left: 0;
+  border-radius: 5px;
+  width: 500px;
+}
+
+.bench-index {
+  text-align: center;
 }
 
 .main {
@@ -59,4 +89,9 @@ body {
   font-weight: bold;
   background: white;
   width: auto;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }

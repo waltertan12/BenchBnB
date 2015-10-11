@@ -19,8 +19,8 @@
     },
     render: function () {
       return (
-        <div>
-        <h2>All Benches</h2>
+        <div className="bench-index">
+        {this.state.benches.length > 0 ? <h2>All Benches</h2> : <h2></h2>}
         <ul>
           {
             this.state.benches.map( function (bench) {
@@ -28,10 +28,10 @@
                 <li className="bench-list-item"
                     onMouseOver={this._onMouseOver.bind(null, bench)} 
                     onClick={this._onMouseOver}>
-                    Description: {bench.description},
-                    Latitude: {bench.lat},
-                    Longitude: {bench.lng}, 
-                    Seating: {bench.seating}
+                    <strong>{bench.description}</strong><br/>
+                    <strong>Latitude:</strong> {bench.lat}<br/>
+                    <strong>Longitude:</strong> {bench.lng}<br/>
+                    <strong>Seating:</strong> {bench.seating}
                 </li>
               );
             }.bind(this))
