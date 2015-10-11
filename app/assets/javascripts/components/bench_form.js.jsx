@@ -10,13 +10,15 @@
         description: "",
         lat: this.props.location.query.lat,
         lng: this.props.location.query.lng,
-        seating: ""
+        seating: 0
       })
     },
     _onSubmit: function (e) {
       e.preventDefault();
+      console.log("////////////// SUBMIT //////////////")
+      console.log(this.state)
       root.ApiUtil.createBench({bench: this.state});
-      this.history.push(null, "/");
+      this.history.pushState(null, "/");
     },
     updateDescription: function (e) {
       this.setState({description: e.target.value});
@@ -28,15 +30,14 @@
       this.setState({lng: parseFloat(e.target.value)});
     },
     updateSeating: function (e) {
-      this.setState({seating: parseFloat(e.target.value)});
+      this.setState({seating: parseInt(e.target.value)});
     },
     cancelBench: function (e) {
-      console.log("Cancel");
       this.history.pushState(null, "/");
     },
     render: function () {
       return (
-        <div>
+        <div className="bench-form">
           <h3>Create a new bench!</h3>
           <form onSubmit={this._onSubmit}>
             <label>Description</label>
@@ -63,7 +64,7 @@
             <br/>
             <label>Seating</label>
             <br/>
-            <input type="text" 
+            <input type="number" 
                    onChange={this.updateSeating} 
                    value={this.state.seating}
                    className="form-control"/>
@@ -71,8 +72,7 @@
             <input className="btn btn-primary"
                    type="submit" value="Submit"/>
             &nbsp;
-            <Link path="/" 
-                    className="btn btn-danger">
+            <Link to="/" className="btn btn-danger">
               Cancel
             </Link>
           </form>

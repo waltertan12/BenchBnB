@@ -20,9 +20,11 @@
     render: function () {
       return (
         <div>
-          <Map filter={this.state.filter}/>
+          <div className="map-filter">
+            <Map filter={this.state.filter}/>
+            <Index />
+          </div>
           <FilterParams filter={this.state.filter}/>
-          <Index />
         </div>
       );
     }

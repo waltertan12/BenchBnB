@@ -10,10 +10,13 @@ var App = React.createClass({
       <div>
         <header>
           <div className="jumbotron">
-            <h1>Bench BnB</h1>
-            <h3>Wow</h3>
-            <h3>Such Bench</h3>
-            <h3>Very BnB</h3>
+            <div className="header-words">
+              <h1>Bench BnB</h1>
+              <h3>Wow</h3>
+              <h3>Such Bench</h3>
+              <h3>Very BnB</h3>
+            </div>
+            <img src="/assets/doge.png" className="doge"/>
           </div>
         </header>
         {this.props.children}

@@ -21,29 +21,49 @@ body {
   font-family: "Montserrat", Ubuntu;
 }
 
+.bench-form {
+  width: 800px;
+  margin: 20px auto;
+}
+
 .map {
   height: 500px;
   width: 500px;
   background-color: lightblue;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0 0 30px gray;
+  border-radius: 5px 0 0 5px;
+  display: inline-block;
 }
 
 .bench-list-item:hover {
   background-color: lightblue;
   cursor: pointer;
+  color: white;
 }
 
 .filter-form {
   margin: 20px auto;
   padding: 20px 20px;
   text-align: center;
-/*  margin-left: auto;
-  margin-right: auto;*/
   border-radius: 5px;
-  background-color: lightgray;
+  color: white;
+  background-color: lightblue;
+  min-width: 800px;
+  width: 70%;
 
+}
+
+.clear-fix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.map-filter {
+  margin: 0 auto;
+  text-align: center;
+  min-width: 800px;
 }
 
 .min-max-form {
@@ -54,14 +74,36 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding: 5px;
-  padding-left: 0;
-  border-radius: 5px;
-  width: 500px;
+  padding: 0;
+  width: 100%;
+}
+
+.bench-index-header {
+  color: white;
+  background: lightblue;
+  margin: 0;
+}
+
+.doge {
+  opacity: 0.03;
+  float: right;
+  width: 300px;
+}
+
+.header-words {
+  float: left;
 }
 
 .bench-index {
+  display: inline-block;
   text-align: center;
+  height: 500px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid lightgray;
+  overflow-y: scroll;
+  border-radius: 0 5px 5px 0;
 }
 
 .main {
@@ -70,13 +112,14 @@ body {
 }
 
 .jumbotron {
+  width: 800px;
   position: relative;
-/*  background: url("http://7-themes.com/data_images/out/58/6969897-bench-park-macro.jpg");*/
   background-size: cover;
   overflow: hidden;
   color: lightblue;
   background: lightblue;
   font-weight: bold;
+  margin: 20px auto;
 }
 
 .jumbotron h3 {
@@ -94,4 +137,9 @@ body {
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+hr {
+  padding: 0;
+  margin: 0;
 }
