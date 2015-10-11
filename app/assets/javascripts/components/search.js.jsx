@@ -13,8 +13,9 @@
     },
     _onChange: function () {
       this.setState({filter: root.FilterParamsStore.all()});
-      // root.ApiUtil.fetchBenches();
-      // this.props.history.pushState(null, "/", this.state.filter);
+    },
+    updateFilter: function () {
+      this.setState({filter: root.FilterParamsStore.all()});
     },
     render: function () {
       return (

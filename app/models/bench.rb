@@ -1,12 +1,13 @@
 class Bench < ActiveRecord::Base
   validates :lat, :lng, :description, presence: true
-  def self.in_bounds(bounds, filter) 
-    upperBound = bounds["northEast"]["lat"]
-    rightBound = bounds["northEast"]["lng"]
-    lowerBound = bounds["southWest"]["lat"]
-    leftBound  = bounds["southWest"]["lng"]
-    min = filter["min"]
-    max = filter["max"]
+  def self.in_bounds(filter) 
+    upperBound = filter["bounds"]["northEast"]["lat"]
+    rightBound = filter["bounds"]["northEast"]["lng"]
+    lowerBound = filter["bounds"]["southWest"]["lat"]
+    leftBound  = filter["bounds"]["southWest"]["lng"]
+    
+    min = filter["min"] || 0
+    max = filter["max"] || 9999
 
     Bench.find_by_sql(<<-SQL)
       SELECT

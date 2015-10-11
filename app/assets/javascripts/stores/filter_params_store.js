@@ -3,7 +3,8 @@
     root.FilterParamsStore = {};
   }
 
-  var _filter = {max: 99999999, min: 0},
+  // var _filter = {bounds: null, max: null, min: null},
+  var _filter = {bounds: {}, max: 10, min: 0},
       resetFilter = function (filter) {
         _filter = filter;
       },
@@ -20,7 +21,7 @@
       return _filter;
     },
     dispatcherID: AppDispatcher.register(function (payload) {
-      if(payload.actionType === FilterParamsConstants.FILTER_UPDATED) {
+      if(payload.actionType === root.FilterParamsConstants.FILTER_UPDATED) {
         resetFilter(payload.filter);
         root.FilterParamsStore.emit(CHANGE_EVENT);
       }

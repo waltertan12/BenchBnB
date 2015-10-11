@@ -9,8 +9,11 @@
       return {markers: []};
     },
     createIdleListener: function () {
+      var bounds,
+          newFilter,
+          ne,
+          sw;
       this.map.addListener('idle', function () {
-        
         mapBounds = this.map.getBounds();
 
         ne = mapBounds.getNorthEast();
@@ -27,9 +30,16 @@
           }
         }
 
-        root.FilterActions.receiveFilter(this.props.filter);
+        var newFilter = {
+          bounds: bounds,
+          max: this.props.filter.max,
+          min: this.props.filter.min
+        }
+        console.log("//// NEW FILTER ////") 
+        console.log(newFilter);
+        root.FilterActions.receiveFilter(newFilter);
 
-        ApiUtil.fetchBenches(bounds, this.props.filter);
+        ApiUtil.fetchBenches(newFilter);
       }.bind(this));
     },
     createClickListener: function () {
@@ -45,9 +55,6 @@
     componentDidMount: function(){
       var mapOptions, 
           mapBounds,
-          bounds,
-          ne,
-          sw
           map = React.findDOMNode(this.refs.google_map);
       
       mapOptions = {
@@ -55,8 +62,8 @@
         zoom: 13 
       };
 
-
       this.map = new google.maps.Map(map, mapOptions);
+
       this.createIdleListener();
       this.createClickListener();
 

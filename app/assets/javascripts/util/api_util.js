@@ -6,11 +6,11 @@
   }
 
   root.ApiUtil = {
-    fetchBenches: function (bounds, filter) {
+    fetchBenches: function (filter) {
       $.ajax({
         url: "/api/benches",
         type: "GET",
-        data: {bounds: bounds, filter: filter},
+        data: {filter: filter},
         dataType: "json",
         success: function (benches) {
           root.ApiActions.receiveBenches(benches);
