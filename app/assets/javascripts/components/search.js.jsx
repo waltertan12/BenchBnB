@@ -24,7 +24,7 @@
         <div>
           <div className="map-filter">
             <Map filter={this.state.filter}/>
-            <Index />
+            <Index filter={this.state.filter} />
           </div>
           <FilterParams filter={this.state.filter}/>
         </div>

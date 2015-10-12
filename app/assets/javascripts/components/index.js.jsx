@@ -4,6 +4,7 @@
   };
 
   root.Index = React.createClass({
+    mixins: [ReactRouter.History],
     getInitialState: function () {
       return ({benches: root.BenchStore.all()});
     },
@@ -11,11 +12,20 @@
       root.BenchStore.addChangeListener(this._onChange);
       root.ItemStore.addChangeListener(this._onMouseOver);
     },
+    componentWillUnmount: function () {
+      root.BenchStore.removeChangeListener(this._onChange);
+      root.ItemStore.removeChangeListener(this._onMouseOver);
+    },
     _onChange: function () {
       this.setState({benches: root.BenchStore.all()});
     },
     _onMouseOver: function (item, e) {
       root.ItemUtil.fetchItem(item);
+    },
+    directToShow: function (bench) {
+      console.log("Directing to bench show...");
+
+      this.history.pushState(null, "benches/" + bench.id, this.props.filter);
     },
     render: function () {
       return (
@@ -30,7 +40,7 @@
                   <hr/>
                   <li className="bench-list-item"
                       onMouseOver={this._onMouseOver.bind(null, bench)} 
-                      onClick={this._onMouseOver}>
+                      onClick={this.directToShow.bind(null, bench)}>
                       <strong>{bench.description}</strong><br/>
                       <strong>Latitude:</strong> {bench.lat}<br/>
                       <strong>Longitude:</strong> {bench.lng}<br/>

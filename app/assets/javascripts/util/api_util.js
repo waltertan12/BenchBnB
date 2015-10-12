@@ -20,6 +20,11 @@
         }
       });
     },
+    fetchSingleBench: function (benchId) {
+      $.ajax({
+        
+      })
+    },
     createBench: function (bench) {
       $.ajax({
         url: "/api/benches",

@@ -26,8 +26,9 @@ var App = React.createClass({
 });
 
 var routes = (
-  <Route path="/" component={App}>
+  <Route path="/" className="clearfix" component={App}>
     <Route path="benches/new" component={BenchForm}/>
+    <Route path="benches/:benchId" component={BenchShow}/>
     <IndexRoute component={Search}/>
   </Route>
 );

@@ -36,6 +36,25 @@ body {
   font-family: "Montserrat", Ubuntu;
 }
 
+.single-bench {
+  margin: 0 auto;
+  text-align: center;
+  min-width: 800px;
+  height: 500px;
+}
+
+.bench-show {
+  padding: 20px;
+  display: inline-block;
+  text-align: center;
+  height: 500px;
+  width: 300px;
+  border: 1px solid gray;
+  border-radius: 0 5px 5px 0;
+  background-color: white;
+  overflow: hidden;
+}
+
 .bench-form {
   width: 800px;
   margin: 20px auto;
@@ -72,7 +91,7 @@ body {
 
 }
 
-.clear-fix:after {
+.clearfix:after {
   content: "";
   display: table;
   clear: both;

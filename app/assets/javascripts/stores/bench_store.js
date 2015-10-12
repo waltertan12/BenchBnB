@@ -22,6 +22,13 @@
     all: function () {
       return _benches.slice();
     },
+    findBench: function (benchId) {
+      for (var i = 0; i < _benches.length; i++) {
+        if (_benches[i].id === benchId) {
+          return _benches[i]
+        };
+      };
+    },
     dispatcherID: AppDispatcher.register(function (payload) {
       if(payload.actionType === BenchConstants.BENCHES_RECEIVED) {
         resetBenches(payload.benches);
@@ -29,5 +36,4 @@
       }
     })
   });
-
 })(this);
