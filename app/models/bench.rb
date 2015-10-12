@@ -1,5 +1,8 @@
 class Bench < ActiveRecord::Base
   validates :lat, :lng, :description, presence: true
+
+  has_many :reviews
+
   def self.in_bounds(filter) 
     upperBound = filter["bounds"]["northEast"]["lat"]
     rightBound = filter["bounds"]["northEast"]["lng"]
@@ -21,5 +24,14 @@ class Bench < ActiveRecord::Base
       AND
         seating BETWEEN #{min} AND #{max}
     SQL
+  end
+
+  def average_rating
+    if reviews.empty?
+      "Not yet reviewed"
+    else
+      total = reviews.inject(0) { |accum, elem| accum += elem.rating }
+      (0.0 + total) / (0.0 + reviews.length)
+    end
   end
 end

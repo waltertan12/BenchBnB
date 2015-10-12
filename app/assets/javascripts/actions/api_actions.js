@@ -15,6 +15,12 @@
         actionType: root.BenchConstants.BENCH_CREATED,
         bench: bench
       })
+    },
+    createReview: function (review) {
+      root.AppDispatcher.dispatch({
+        actionType: root.ReviewConstants.REVIEW_CREATED,
+        review: review
+      })
     }
   };
 

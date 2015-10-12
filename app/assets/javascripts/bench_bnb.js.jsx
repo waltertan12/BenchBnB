@@ -28,7 +28,8 @@ var App = React.createClass({
 var routes = (
   <Route path="/" className="clearfix" component={App}>
     <Route path="benches/new" component={BenchForm}/>
-    <Route path="benches/:benchId" component={BenchShow}/>
+    <Route path="benches/:benchId" component={BenchShow}>
+    </Route>
     <IndexRoute component={Search}/>
   </Route>
 );

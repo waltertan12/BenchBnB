@@ -6,4 +6,6 @@ json.array! @benches do |bench|
                        :seating,
                        :created_at, 
                        :updated_at)
+  json.average_rating bench.average_rating
+  json.reviews bench.reviews
 end

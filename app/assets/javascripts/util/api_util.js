@@ -20,11 +20,6 @@
         }
       });
     },
-    fetchSingleBench: function (benchId) {
-      $.ajax({
-        
-      })
-    },
     createBench: function (bench) {
       $.ajax({
         url: "/api/benches",
@@ -33,6 +28,17 @@
         dataType: "json",
         success: function (bench) {
           root.ApiActions.createBench(bench);
+        }
+      });
+    },
+    createReview: function (review) {
+      $.ajax({
+        url: "/api/reviews",
+        type: "POST",
+        data: review,
+        dataType: "json",
+        success: function (review) {
+          root.ApiActions.createReview(review);
         }
       });
     }

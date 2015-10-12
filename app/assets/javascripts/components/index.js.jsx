@@ -42,9 +42,8 @@
                       onMouseOver={this._onMouseOver.bind(null, bench)} 
                       onClick={this.directToShow.bind(null, bench)}>
                       <strong>{bench.description}</strong><br/>
-                      <strong>Latitude:</strong> {bench.lat}<br/>
-                      <strong>Longitude:</strong> {bench.lng}<br/>
-                      <strong>Seating:</strong> {bench.seating}
+                      <strong>Seating:</strong> {bench.seating}<br/>
+                      <strong>Rating: </strong> {bench.average_rating}
                   </li>
                 </div>
               );
