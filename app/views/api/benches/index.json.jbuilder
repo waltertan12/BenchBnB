@@ -4,6 +4,7 @@ json.array! @benches do |bench|
                        :lat, 
                        :lng,
                        :seating,
+                       :image_url,
                        :created_at, 
                        :updated_at)
   json.average_rating bench.average_rating

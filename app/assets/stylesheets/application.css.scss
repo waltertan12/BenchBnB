@@ -43,33 +43,44 @@ video#bgvid {
 
   z-index: -100;
   background: url("/assets/brooklyn.jpg");
-  background-size: auto 100%;
-  /*background-repeat: no-repeat;*/
+  /*background: url("https://images.unsplash.com/photo-1438978280647-f359d95ebda4?q=80&fm=jpg&s=73cb1239b517411534379c92660b2660");*/
+  /*background: url("https://images.unsplash.com/photo-1444488694761-b033d54b1c46?q=80&fm=jpg&s=887edb69aef978ed5dd9c23e12fd2e01");*/
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   /*background-position: bottom;*/
+}
+
+.review-header {
+  display: inline-block;
+  color: cornflowerblue;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .review-index {
   margin: 20px auto;
   width: 800px;
   border-radius: 5px;
-  background-color: gray;
+  background-color: cornflowerblue;
   color: white;
   text-align: center;
   padding: 20px;
 }
 
 .review-index-item {
-
+  padding-bottom: 10px;
+  border-radius: 5px;
 }
 
 .review-index-item:hover {
-  background-color: lightgray;
+  background-color: #F3DBFF;
+  color: black;
 }
 
 .review-form {
   padding: 20px;
   border-radius: 5px;
-  background-color: gray;
+  background-color: cornflowerblue;
   color: white;
   width: 800px;
   margin: 20px auto;
@@ -92,16 +103,22 @@ body {
   text-align: center;
   height: 500px;
   width: 300px;
-  border: 1px solid gray;
+  border: 1px solid cornflowerblue;
   border-radius: 0 5px 5px 0;
   background-color: white;
-  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.bench-show-image {
+  border-radius: 5px;
+  border: 1px solid #F3DBFF;
+  margin-bottom: 10px;
 }
 
 .bench-form {
   width: 800px;
   margin: 20px auto;
-  background-color: gray;
+  background-color: cornflowerblue;
   color: white;
   padding: 20px;
   border-radius: 5px;
@@ -110,7 +127,7 @@ body {
 .map {
   height: 500px;
   width: 500px;
-  background-color: gray;
+  background-color: cornflowerblue;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px 0 0 5px;
@@ -118,9 +135,22 @@ body {
 }
 
 .bench-list-item:hover {
-  background-color: gray;
+  background-color: cornflowerblue;
   cursor: pointer;
   color: white;
+}
+
+.bench-list-item-text {
+  display: inline-block;
+  text-align: left;
+}
+
+.bench-list-item-image {
+  display: inline-block;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #F3DBFF;
+  transform: translateY(-20px);
 }
 
 .filter-form {
@@ -129,10 +159,15 @@ body {
   text-align: center;
   border-radius: 5px;
   color: white;
-  background-color: gray;
+  background-color: cornflowerblue;
   min-width: 800px;
   width: 70%;
+}
 
+.filter-header {
+  color: cornflowerblue;
+  display: inline-block;
+  background: white;
 }
 
 .clearfix:after {
@@ -161,7 +196,7 @@ body {
 
 .bench-index-header {
   color: white;
-  background: gray;
+  background: cornflowerblue;
   margin: 0;
 }
 
@@ -182,7 +217,7 @@ body {
   width: 300px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid gray;
+  border: 1px solid cornflowerblue;
   overflow-y: scroll;
   border-radius: 0 5px 5px 0;
   background-color: white;
@@ -198,8 +233,8 @@ body {
   position: relative;
   background-size: cover;
   overflow: hidden;
-  color: gray;
-  background: gray;
+  color: cornflowerblue;
+  background: cornflowerblue;
   font-weight: bold;
   margin: 20px auto;
 }

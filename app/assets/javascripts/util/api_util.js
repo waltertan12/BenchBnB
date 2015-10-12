@@ -41,6 +41,17 @@
           root.ApiActions.createReview(review);
         }
       });
+    },
+    updateImageUrl: function (bench, image_url) {
+      $.ajax({
+        url: "/api/benches/" + bench.id,
+        type: "PUT",
+        data: {bench: {image_url: image_url}},
+        dataType: "json",
+        success: function (benches) {
+          root.ApiActions.updateImageUrl(benches);
+        }
+      });
     }
   };
 })(this);

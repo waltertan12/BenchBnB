@@ -23,7 +23,7 @@
       var reviews = this.state.reviews;
       console.log(reviews);
       if (reviews.length === 0 ) {
-        reviewContent = <h1>No reviews...</h1>;
+        reviewContent = <h3>No reviews yet... Be the first!</h3>;
       } else {
         reviewContent = (
           <ul>

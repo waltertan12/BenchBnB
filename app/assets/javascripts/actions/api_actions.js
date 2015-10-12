@@ -21,7 +21,13 @@
         actionType: root.ReviewConstants.REVIEW_CREATED,
         review: review
       })
-    }
+    },
+    updateImageUrl: function (benches) {
+      root.AppDispatcher.dispatch({
+        actionType: root.ReviewConstants.BENCHES_RECEIVED,
+        benches: benches
+      })
+    } 
   };
 
 })(this);

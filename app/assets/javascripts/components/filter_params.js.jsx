@@ -31,7 +31,7 @@
     render: function () {
       return (
         <div className="filter-form">
-        <h3>Find the right bench for you</h3>
+        <h3 className="filter-header">Find the right bench for you</h3>
           <br/>
           <form onSubmit={this.onSubmit} className="row">
             <div className="col-md-3 col-md-offset-3">

@@ -38,12 +38,18 @@
               return(
                 <div>
                   <hr/>
-                  <li className="bench-list-item"
+                  <li className="bench-list-item">
+                    <div className="bench-list-item-text"
                       onMouseOver={this._onMouseOver.bind(null, bench)} 
                       onClick={this.directToShow.bind(null, bench)}>
                       <strong>{bench.description}</strong><br/>
                       <strong>Seating:</strong> {bench.seating}<br/>
                       <strong>Rating: </strong> {bench.average_rating}
+                    </div>
+                    <img className="bench-list-item-image"
+                         src={bench.image_url}
+                         height="50"
+                         width="50"/>
                   </li>
                 </div>
               );
