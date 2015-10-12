@@ -127,7 +127,6 @@
 
       this.setState({markers: newMarkers});
     },
-
     render: function () {
       return (
         <div className="map" ref={"google_map"}></div>
