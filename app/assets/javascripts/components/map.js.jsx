@@ -52,6 +52,15 @@
         this.history.pushState(null, "benches/new", query);
       }.bind(this));
     },
+    getLocation: function () {
+      var center = {lat: 37.7758, lng: -122.435};
+      navigator.geolocation.getCurrentPosition(function (position) {
+        console.log("Found location!");
+        center.lat = position.coords.latitude;
+        center.lng = position.coords.longitude;
+      })
+      return center;
+    },
     componentDidMount: function(){
       var mapOptions, 
           mapBounds,
@@ -59,7 +68,7 @@
       
       if (typeof this.props.bench === "undefined") {
         mapOptions = {
-          center: {lat: 37.7758, lng: -122.435},
+          center: this.getLocation(),
           zoom: 13 
         };
 

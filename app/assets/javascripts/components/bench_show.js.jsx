@@ -13,6 +13,12 @@
       var bench = root.BenchStore.findBench(benchId);
       return {bench: bench}
     },
+    componentDidMount: function () {
+
+    },
+    componentWillUnmount: function () {
+
+    },
     setNewState: function () {
       var newBench = this.getStateFromStore();
       this.setState(newBench);
@@ -21,6 +27,9 @@
       this.history.pushState(null, "/");
     },
     upload: function () {
+      var newImageURL = "",
+          updatedBench = this.state.bench;
+
       cloudinary.openUploadWidget(
         {
           cloud_name: "q32rnq9jfaskfaskfasf",
@@ -28,18 +37,27 @@
           upload_preset: "f0qeyyhf",
           theme: "minimal"
         }, 
-        function(error, result) { 
-          console.log(error, result);
-          console.log(result[0].secure_url);
-          root.ApiUtil.updateImageUrl(
-            this.state.bench, 
-            result[0].secure_url
-          );
+        function(error, result) {
+          if (error) {
+            console.log(error, result);
+          } else {
+            newImageURL = result[0].secure_url;
+            updatedBench.image_url = newImageURL;
+            document.getElementById("bench-image").src = newImageURL;
+            this.setState({bench: updatedBench});
+
+            root.ApiUtil.updateImageUrl(
+              this.state.bench, 
+              result[0].secure_url
+            );
+
+          }
+
         }.bind(this)
       )
     },
     render: function () {
-      this.props.params.benchId;
+      console.log(this);
       return (
         <div>
           <div className="single-bench">
@@ -55,7 +73,7 @@
                 <li>Longitude: {this.state.bench.lng}</li>
               </ul>
               <h3>Photo</h3>
-              <img className="bench-show-image"
+              <img id="bench-image" className="bench-show-image"
                    src={this.state.bench.image_url} 
                    height="225"
                    widht="225"/>

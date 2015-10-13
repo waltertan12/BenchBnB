@@ -14,12 +14,16 @@
  *= require_self
  */
 
-$primary-color: lightblue;
+$primary-color:           #66CCFF;
+$secondary-color:         #F3DBFF;
+$inverse-text-background: white;
+$hover-color:             #f4bd53;
+$hover-text:              gray;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-video#bgvid {
+video#bgvid{
   position: fixed;
   width: auto;
   height: auto;
@@ -31,9 +35,9 @@ video#bgvid {
   transform: translateX(-50%) translateY(-50%);
 
   z-index: -100;
-  /*background: url("/assets/brooklyn.jpg");*/
+  background: url("/assets/brooklyn.jpg");
   /*background: url("https://images.unsplash.com/photo-1444392061186-9fc38f84f726?q=80&fm=jpg&s=4df74cf67c383e46c426b4e864560fbf");*/
-  background: url("https://images.unsplash.com/27/winter-view.jpeg?q=80&fm=jpg&s=0fb26fc415ef69141153d8e452b630c3");
+  /*background: url("https://images.unsplash.com/27/winter-view.jpeg?q=80&fm=jpg&s=0fb26fc415ef69141153d8e452b630c3");*/
   /*background: url("https://images.unsplash.com/photo-1444399344830-a0f10c7f9888?q=80&fm=jpg&s=a0e8b0f29338858cbe7fcad05dfdb776");*/
   /*background: url("https://images.unsplash.com/photo-1438978280647-f359d95ebda4?q=80&fm=jpg&s=73cb1239b517411534379c92660b2660");*/
   /*background: url("https://images.unsplash.com/photo-1444488694761-b033d54b1c46?q=80&fm=jpg&s=887edb69aef978ed5dd9c23e12fd2e01");*/
@@ -44,7 +48,7 @@ video#bgvid {
 .review-header {
   display: inline-block;
   color: $primary-color;
-  background-color: white;
+  background-color: $inverse-text-background;
   border-radius: 5px;
 }
 
@@ -64,8 +68,8 @@ video#bgvid {
 }
 
 .review-index-item:hover {
-  background-color: #F3DBFF;
-  color: black;
+  background-color: $hover-color;
+  color: $hover-text;
 }
 
 .review-form {
@@ -96,13 +100,13 @@ body {
   width: 300px;
   border: 1px solid $primary-color;
   border-radius: 0 5px 5px 0;
-  background-color: white;
+  background-color: $inverse-text-background;
   overflow-y: scroll;
 }
 
 .bench-show-image {
   border-radius: 5px;
-  border: 1px solid #F3DBFF;
+  border: 1px solid $secondary-color;
   margin-bottom: 10px;
 }
 
@@ -126,12 +130,14 @@ body {
 }
 
 .bench-list-item:hover {
-  background-color: $primary-color;
+  background-color: $hover-color;
   cursor: pointer;
-  color: white;
+  color: $hover-text;
 }
 
 .bench-list-item-text {
+  width: 177px;
+  overflow: hidden;
   display: inline-block;
   text-align: left;
 }
@@ -140,7 +146,7 @@ body {
   display: inline-block;
   margin: 5px;
   border-radius: 5px;
-  border: 1px solid #F3DBFF;
+  border: 1px solid $secondary-color;
   transform: translateY(-20px);
 }
 
@@ -158,7 +164,7 @@ body {
 .filter-header {
   color: $primary-color;
   display: inline-block;
-  background: white;
+  background: $inverse-text-background;
 }
 
 .clearfix:after {
@@ -231,14 +237,14 @@ body {
 }
 
 .jumbotron h3 {
-  background: white;
+  background: $inverse-text-background;
   display: table;
 }
 
 .jumbotron h1 {
   display: inline-block;
   font-weight: bold;
-  background: white;
+  background: $inverse-text-background;
   width: auto;
 }
 

@@ -11,8 +11,8 @@ b1 = Bench.create!(description: "AT&T Park",
                    lng: -122.38902568817139, 
                    seating: 5)
 b2 = Bench.create!(description: "Lands End", 
-                   lat: 37.78, 
-                   lng: -122.50, 
+                   lat: 37.788052, 
+                   lng: -122.505735, 
                    seating: 2)
 b3 = Bench.create!(description: "Baker Beach", 
                    lat: 37.79303284401639, 
