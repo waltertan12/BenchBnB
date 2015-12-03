@@ -5,10 +5,12 @@
 
   root.ItemActions = {
     receiveItem: function (item) {
-      root.AppDispatcher.dispatch({
-        actionType: root.ItemConstants.BENCH_HOVER,
-        item: item
-      });
+      if (!AppDispatcher.isDispatching()) {
+        root.AppDispatcher.dispatch({
+          actionType: root.ItemConstants.BENCH_HOVER,
+          item: item
+        })
+      }
     }
   };
 

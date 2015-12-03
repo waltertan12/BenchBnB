@@ -1,6 +1,6 @@
 class Api::BenchesController < ApplicationController
   def index
-    @benches = Bench.in_bounds(params[:filter])
+    @benches = Bench.includes(:reviews).in_bounds(params[:filter])
     render :index
   end
 

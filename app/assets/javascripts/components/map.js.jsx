@@ -123,6 +123,7 @@
       };
     },
     toggleBounce: function(marker) {
+      console.log(marker);
       if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
       } else {
@@ -152,7 +153,7 @@
             description: bench.description
         });
 
-        marker.addListener('click', this.toggleBounce.bind(null, marker));
+        // marker.addListener('click', this.toggleBounce.bind(null, marker));
         marker.addListener('click', this.directToShow.bind(null, bench));
         newMarkers.push(marker);
 
